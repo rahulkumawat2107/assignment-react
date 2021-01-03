@@ -1,4 +1,5 @@
 import React from 'react'
+import './Form.css'
 import {useState,useEffect} from 'react'
 
 function PostForm({updateTableFunction}) {
@@ -66,7 +67,8 @@ function PostForm({updateTableFunction}) {
     //console.log("form",formData)
 
     return (
-        <div>
+        <div className="postform">
+
             <form onSubmit={postData}>
                 <label for="orderId">Order Id</label>
                 <input type="text" id="orderId" placeholder="Enter Here"></input>
