@@ -5,31 +5,33 @@ import {useState,useEffect} from 'react'
 function PostForm({updateTableFunction}) {
 
     const [formData, setFormData] = useState({});
-    // const [orderId, setOrderId] = useState("");
-    // const [itemName, setItemName] = useState("");
-    // const [quantity, setQuantity] = useState("0");
-    // const [totalAmount, setTotalAmount] = useState("0");
+    const [orderId, setOrderId] = useState("");
+    const [itemName, setItemName] = useState("");
+    const [quantity, setQuantity] = useState("0");
+    const [totalAmount, setTotalAmount] = useState("0");
 
     const postData = (e) => {
         e.preventDefault();
-        const id = document.getElementById("orderId").value;
-        const name = document.getElementById("itemName").value;
-        const quant = document.getElementById("quantity").value;
-        const amount = document.getElementById("totalAmount").value;
+        // const id = document.getElementById("orderId").value;
+        // const name = document.getElementById("itemName").value;
+        // const quant = document.getElementById("quantity").value;
+        // const amount = document.getElementById("totalAmount").value;
 
-        if(id === "" || name === "" || quant === "" || amount ==="")
+        if(orderId === "" || itemName === "" || quantity === "" || totalAmount === "")
             return alert("Enter all input fields");
         
-        console.log("hey")
+        // console.log("hey")
 
         setFormData({
-            orderId: id,
-            itemName: name,
-            quantity: quant,
-            totalAmount: amount
+            orderid: orderId,
+            itemname: itemName,
+            quantity: quantity,
+            totalamount: totalAmount
         })
 
     }
+
+    // console.log("form", formData);
 
     useEffect(() => {
         console.log("formData",formData);
@@ -71,16 +73,16 @@ function PostForm({updateTableFunction}) {
 
             <form onSubmit={postData}>
                 <label for="orderId">Order Id</label>
-                <input type="text" id="orderId" placeholder="Enter Here"></input>
+                <input type="text" id="orderId" placeholder="Enter Here" onChange={(e) => setOrderId(e.target.value)}></input>
 
                 <label for="itemName">Item Name</label>
-                <input type="text" id="itemName" placeholder="Enter Here"></input>
+                <input type="text" id="itemName" placeholder="Enter Here" onChange={(e) => setItemName(e.target.value)}></input>
 
                 <label for="quantity">Quantity</label>
-                <input type="number" id="quantity"  placeholder="Enter Here"></input>
+                <input type="number" id="quantity"  placeholder="Enter Here" onChange={(e) => setQuantity(e.target.value)}></input>
                 
                 <label for="totalAmount">Total Amount</label>
-                <input type="number" id="totalAmount"  placeholder="Enter Here"></input>
+                <input type="number" id="totalAmount"  placeholder="Enter Here" onChange={(e) => setTotalAmount(e.target.value)}></input>
 
                 <button type="submit">Submit</button>
             </form>

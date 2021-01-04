@@ -28,12 +28,12 @@ function App() {
 
       <h1>Assignment</h1>
 
-      {data.length === 0 ? <h1>Loading</h1> :
-        <div>
-        
-          <PostForm updateTableFunction={updateTable}/>
+      <PostForm updateTableFunction={updateTable}/>
           <button onClick={() => setShowTable(!showTable)}>Show Table</button>
 
+      {data.length === 0 ? <h2>No data in the table</h2> :
+        <div>
+        
           {
             showTable === false ? <h3>Click on button to see the Data</h3> : 
             <div className="table-design">
@@ -45,7 +45,7 @@ function App() {
                   <th>Total Amount</th>
                 </tr>
                 <tbody>
-                  {data.map(val => <ShowTable orderId={val.orderId} quantity={val.quantity} itemName={val.itemName} totalAmount={val.totalAmount}/>)}
+                  {data.map(val => <ShowTable orderId={val.orderid} quantity={val.quantity} itemName={val.itemname} totalAmount={val.totalamount}/>)}
                 </tbody>
               </table>
             </div>
